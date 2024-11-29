@@ -1,0 +1,76 @@
+public class TransaccionContable {
+
+    private String nroDoc;
+    private int secuenciaDoc;
+    private int cuentaContable; 
+    private double valorDebito; 
+    private double valorCredito; 
+    private String comentario;
+
+    public TransaccionContable(String nroDoc, int secuenciaDoc, int cuentaContable, double valorDebito, double valorCredito, String comentario) {
+        this.nroDoc = nroDoc;
+        this.secuenciaDoc = secuenciaDoc;
+        this.cuentaContable = cuentaContable;
+        this.valorDebito = valorDebito;
+        this.valorCredito = valorCredito;
+        this.comentario = comentario;
+    }
+
+    public String getNroDoc() {
+        return nroDoc;
+    }
+
+    public void setNroDoc(String nroDoc) {
+        this.nroDoc = nroDoc;
+    }
+
+    public int getSecuenciaDoc() {
+        return secuenciaDoc;
+    }
+
+    public void setSecuenciaDoc(int secuenciaDoc) {
+        this.secuenciaDoc = secuenciaDoc;
+    }
+
+    public int getCuentaContable() {
+        return cuentaContable;
+    }
+
+    public void setCuentaContable(int cuentaContable) {
+        this.cuentaContable = cuentaContable;
+    }
+
+    public double getValorDebito() {
+        return valorDebito;
+    }
+
+    public void setValorDebito(double valorDebito) {
+        this.valorDebito = valorDebito;
+    }
+
+    public double getValorCredito() {
+        return valorCredito;
+    }
+
+    public void setValorCredito(double valorCredito) {
+        this.valorCredito = valorCredito;
+    }
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
+
+    public void imprimirDetalles() {
+        System.out.println("Transacción Contable:");
+        System.out.println("Nro Documento: " + nroDoc);
+        System.out.println("Secuencia Documento: " + secuenciaDoc);
+        System.out.println("Cuenta Contable: " + cuentaContable);
+        System.out.println("Valor Débito: " + valorDebito);
+        System.out.println("Valor Crédito: " + valorCredito);
+        System.out.println("Comentario: " + comentario);
+    }
+}
