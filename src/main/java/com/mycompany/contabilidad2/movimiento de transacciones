@@ -1,0 +1,124 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class MovimientoTransaccion extends JFrame {
+
+    public MovimientoTransaccion() {
+        setTitle("Movimiento de Transacción");
+        setSize(800, 600);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
+
+        JPanel panelSuperior = new JPanel();
+        panelSuperior.setLayout(new GridLayout(4, 4, 10, 10));
+        panelSuperior.setBackground(Color.GRAY);
+
+        panelSuperior.add(new JLabel("Número de documento:"));
+        JTextField txtNumeroDocumento = new JTextField();
+        panelSuperior.add(txtNumeroDocumento);
+
+        panelSuperior.add(new JLabel("Fecha:"));
+        JTextField txtFecha = new JTextField();
+        panelSuperior.add(txtFecha);
+
+        panelSuperior.add(new JLabel("Tipo de documento:"));
+        JTextField txtTipoDocumento = new JTextField();
+        panelSuperior.add(txtTipoDocumento);
+
+        panelSuperior.add(new JLabel("Hora:"));
+        JTextField txtHora = new JTextField();
+        panelSuperior.add(txtHora);
+
+        panelSuperior.add(new JLabel("Descripción:"));
+        JTextField txtDescripcion = new JTextField();
+        panelSuperior.add(txtDescripcion);
+
+        panelSuperior.add(new JLabel("Creado por:"));
+        JTextField txtCreadoPor = new JTextField();
+        panelSuperior.add(txtCreadoPor);
+
+        panelSuperior.add(new JLabel("Monto:"));
+        JTextField txtMonto = new JTextField();
+        panelSuperior.add(txtMonto);
+
+        add(panelSuperior, BorderLayout.NORTH);
+
+        JPanel panelMedio = new JPanel();
+        panelMedio.setLayout(new GridLayout(3, 4, 10, 10));
+        panelMedio.setBackground(Color.LIGHT_GRAY);
+
+        panelMedio.add(new JLabel("Número de cuenta:"));
+        JTextField txtNumeroCuenta = new JTextField();
+        panelMedio.add(txtNumeroCuenta);
+
+        panelMedio.add(new JLabel("Crédito:"));
+        JTextField txtCredito = new JTextField();
+        panelMedio.add(txtCredito);
+
+        panelMedio.add(new JLabel("Descripción:"));
+        JTextField txtDescripcionCuenta = new JTextField();
+        panelMedio.add(txtDescripcionCuenta);
+
+        panelMedio.add(new JLabel("Débito:"));
+        JTextField txtDebito = new JTextField();
+        panelMedio.add(txtDebito);
+
+        panelMedio.add(new JLabel("Comentario:"));
+        JTextField txtComentario = new JTextField();
+        panelMedio.add(txtComentario);
+
+        JButton btnAgregar = new JButton("Agregar");
+        panelMedio.add(btnAgregar);
+
+        add(panelMedio, BorderLayout.CENTER);
+
+        JPanel panelInferior = new JPanel();
+        panelInferior.setLayout(new BorderLayout());
+
+        String[] columnNames = {"Selc.", "Cuenta", "Descripción", "Débito", "Crédito", "Comentario"};
+        Object[][] data = {};
+        JTable table = new JTable(data, columnNames);
+        JScrollPane scrollPane = new JScrollPane(table);
+
+        panelInferior.add(scrollPane, BorderLayout.CENTER);
+
+        JPanel panelBotones = new JPanel();
+        panelBotones.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
+
+        JButton btnGuardar = new JButton("Guardar");
+        JButton btnLimpiar = new JButton("Limpiar");
+        JButton btnSalir = new JButton("Salir");
+
+        panelBotones.add(btnGuardar);
+        panelBotones.add(btnLimpiar);
+        panelBotones.add(btnSalir);
+
+        panelInferior.add(panelBotones, BorderLayout.SOUTH);
+
+        add(panelInferior, BorderLayout.SOUTH);
+
+        // Eventos básicos para los botones
+        btnSalir.addActionListener(e -> System.exit(0));
+        btnLimpiar.addActionListener(e -> {
+            txtNumeroDocumento.setText("");
+            txtTipoDocumento.setText("");
+            txtDescripcion.setText("");
+            txtMonto.setText("");
+            txtFecha.setText("");
+            txtHora.setText("");
+            txtCreadoPor.setText("");
+            txtNumeroCuenta.setText("");
+            txtCredito.setText("");
+            txtDescripcionCuenta.setText("");
+            txtDebito.setText("");
+            txtComentario.setText("");
+        });
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            MovimientoTransaccion frame = new MovimientoTransaccion();
+            frame.setVisible(true);
+        });
+    }
+}
